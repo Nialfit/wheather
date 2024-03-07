@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Tips</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-repeat: no-repeat;
+            background-size:cover;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .search-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #SearchInput {
+            padding: 12px; /* Increase the padding to make the input taller */
+            font-size: 16px; /* Increase the font size to make the text bigger */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+
+        #SearchButton {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        td img {
+            max-width: 70%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        p {
+            line-height: 1.5;
+            color: #333;
+        }
+
+        header {
+            background-color: lightseagreen;
+            color: black;
+            padding: 20px 0; /* Increased padding */
+            }
+        nav ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              text-align: center;
+            }
+        nav ul li {
+              display: inline-block;
+              margin-right: 40px; /* Increased margin */
+            }
+        nav ul li a {
+              color: white;
+              text-decoration: none;
+              font-size: 1.2em; /* Increased font size */
+            }
+        nav ul li a:hover {
+              color: grey;
+            }
+        .hidden {
+            display: none;
+           }
+        p {
+            line-height: 1.5;
+            color: black;
+            font-size: 25px; /* Adjust the font size as needed */
+           }
+
+        
+    </style>
+</head>
+<body background="image/sky.jpg">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="http://127.0.0.1:5500/home.html#">Home</a></li>
+        <li><a href="http://127.0.0.1:5500/index.html">Search country</a></li>
+        <li><a href="http://127.0.0.1:5500/tips.html#">Tips</a></li>
+        <li><a href="http://127.0.0.1:5500/crud.html">Comments</a></li>
+  
+      </ul>
+    </nav>
+  </header>
+    <h1>Weather Tips</h1>
+
+    <div class="search-container">
+        <input type="text" id="SearchInput" placeholder="Search for Weather..." oninput="searchWeather()">
+        <button id="SearchButton">Search</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="image/hot.jpg" alt="#"></td>
+                <td>
+                    <p>In hot weather, stay hydrated by drinking plenty of water and wear light, breathable clothing to stay cool. Protect yourself from the sun by wearing a hat and using sunscreen, and plan outdoor activities for cooler times of the day.(summer)</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td><img src="image/cold.jpg" alt="#"></td>
+                <td>
+                    <p>In cold weather, dress in layers to stay warm, and wear a hat, gloves, and scarf to protect yourself from the cold. Use moisturizer to prevent dry skin, and be aware of signs of hypothermia and frostbite.(winter)</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td><img src="image/rain.jpg" alt="#"></td>
+                <td>
+                    <p>In rainy weather, pack a waterproof jacket and shoes, and carry an umbrella or waterproof cover for your belongings. Be cautious of slippery surfaces and plan indoor activities for heavy rain.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td><img src="image/snowy.jpg" alt="#"></td>
+                <td>
+                    <p>In snowy weather, dress warmly in waterproof, insulated clothing and wear boots with good traction. Use sunglasses to protect your eyes from glare off the snow, and be cautious of icy patches.(winter)</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td><img src="image/windy.jpg" alt="#"></td>
+                <td>
+                    <p>In windy weather, it's important to dress warmly in layers to protect yourself from the wind chill. Use a scarf or face mask to cover your face and prevent windburn. Secure loose items that could be blown away, and be cautious of falling branches or debris.</p>
+                </td>
+            </tr>
+                <td><img src="image/extreme.jpg" alt="#"></td>
+                <td>
+                    <p>In extreme weather conditions, stay informed about weather forecasts and follow local advisories and guidelines. Have a plan in place for emergencies, including shelter and communication with others.(summer)</p>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <a href="index.html">Home Page</a>
+
+    <script>
+        function searchWeather() {
+            // Get the search input value
+            var searchInput = document.getElementById("SearchInput").value.toLowerCase();
+
+            // Get all rows in the table body
+            var rows = document.querySelectorAll("tbody tr");
+
+            // Iterate through each row and check if it contains the search term
+            rows.forEach(function(row) {
+                var description = row.querySelector("td p").textContent.toLowerCase();
+                if (description.includes(searchInput)) {
+                    // If the description contains the search term, show the row
+                    row.classList.remove("hidden");
+                } else {
+                    // If not, hide the row
+                    row.classList.add("hidden");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

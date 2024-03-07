@@ -1,0 +1,41 @@
+body {
+    background-image: url('image/sky.jpg');
+    background-size: cover; /* Adjust the image size to cover the entire background */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+}
+
+
+*{
+  color: #fff;
+}
+
+#Update{
+  display: none;
+}
+
+header {
+  background-color: lightseagreen;
+  color: black;
+  padding: 20px 0; /* Increased padding */
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+nav ul li {
+  display: inline-block;
+  margin-right: 40px; /* Increased margin */
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em; /* Increased font size */
+}
+nav ul li a:hover {
+  color: grey;
+}
+.header{
+  text-align:center;
+}
